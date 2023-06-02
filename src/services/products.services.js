@@ -9,7 +9,7 @@ export class ProductService {
     }
   
   async getAll() {
-    const products = await ProductModel.find({});
+    const products = await ProductModel.find({}).lean().exec();
     return products;
   }
 

@@ -7,7 +7,10 @@ import handlebars from 'express-handlebars';
 import { Server } from 'socket.io';
 import { __dirname, connectMongo } from './utils.js';
 import realTimeRouter from './routes/realTimeProducts.router.js';
+import { ProductService } from './services/products.services.js';
 const manager = new ProductManager("./products.json");
+const Service = new ProductService();
+
 
 const app = express();
 const port=8080;
@@ -43,11 +46,11 @@ app.use('/home',viewsRouter);
 
 
     socket.on('client:productDelete', async (pid, cid) => {
-        const id = await manager.getProductById(parseInt(pid.id))
+        const id = await Service.getProductById(pid.id)
 
         if(id.id!=undefined) {
-               await manager.deleteProduct(parseInt( pid.id ))
-              const data = await manager.getProducts()
+               await Service.deleteOne(pid.id )
+              const data = await Service.getAll();
                return socketServer.emit('newList', data)
         }else{
               const dataError = {status: "error", message: id}
@@ -57,10 +60,10 @@ app.use('/home',viewsRouter);
 
 
     socket.on('client:newProduct', async data => {
-
-        const productAdd = await manager.addProduct(data)
+        console.log(data.title, data.description, data.price,data.code,data.stock,data.category)
+        const productAdd = await Service.createOne(data.title, data.description, data.price,data.code,data.stock,data.category);
         if(productAdd.status != 'error'){
-            const newData = await manager.getProducts();
+            const newData = await Service.getAll();
             return  socketServer.emit('server:productAdd', newData);
         }else{
              const dataError = {status: "error", message: productAdd.message}

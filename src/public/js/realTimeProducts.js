@@ -38,10 +38,10 @@ socket.on('newList', data => {
         return {status: 'error', mesage: 'Product not found'}
     }
     let list
-    data.forEach(({id, title, price, code, stock, category, description, status, thumbnail}) => {
+    data.forEach(({_id, title, price, code, stock, category, description, status, thumbnail}) => {
         list +=`
         <tr>
-        <td>${id}</td>
+        <td>${_id}</td>
         <td>${title}</td>
         <td>${price}</td>
         <td>${code}</td>
@@ -84,7 +84,6 @@ const code = document.getElementById('code')
 const stock = document.getElementById('stock')
 const category = document.getElementById('category')
 const description = document.getElementById('description')
-const status = document.getElementById('status')
 const thumbnail = document.getElementById('thumbnail')
 
 
@@ -98,7 +97,6 @@ addForm.addEventListener('submit', e => {
         stock: stock.value,
         category: category.value,
         description: description.value,
-        status: status.value,
         thumbnails: thumbnail.value
     })
 })
@@ -115,17 +113,15 @@ socket.on('server:productAdd', (newData) => {
         return {status: 'error', errorMess}
     }
     let list
-    newData.forEach(({id, title, price, code, stock, category, description, status, thumbnail}) => {
+    newData.forEach(({id, title, price, code, stock, category, description, thumbnail}) => {
         list +=`
         <tr>
-        <td>${id}</td>
         <td>${title}</td>
         <td>${price}</td>
         <td>${code}</td>
         <td>${stock}</td>
         <td>${category}</td>
         <td>${description}</td>
-        <td>${status}</td>
         <td><img
             class="img"
             src="${thumbnail}"
@@ -135,14 +131,12 @@ socket.on('server:productAdd', (newData) => {
     })
     const listAct = `
             <tr>
-            <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Price</th>
             <th scope="col">code</th>
             <th scope="col">stock</th>
             <th scope="col">category</th>
             <th scope="col">description</th>
-            <th scope="col">status</th>
             <th scope="col">thumbnail</th>
             </tr>` + list
     document.getElementById('tableProduct').innerHTML = listAct
