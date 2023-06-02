@@ -1,0 +1,179 @@
+{
+  "products": [
+    {
+      "id": 13,
+      "title": "TEST prdoduct",
+      "description": "second product",
+      "price": 1599,
+      "thumbnails": [],
+      "code": "897ddgDdsd4ñ3",
+      "stock": 69,
+      "category": "CATEGORIA",
+      "status": "true"
+    },
+    {
+      "id": 14,
+      "title": "TEST prdoduct",
+      "description": "second product",
+      "price": 1599,
+      "thumbnails": [],
+      "code": "897ddfdgDdsd4ñ3",
+      "stock": 69,
+      "status": true,
+      "category": "CATEGORIA"
+    },
+    {
+      "id": 15,
+      "title": "TEST prdoduct",
+      "description": "second product",
+      "price": 1599,
+      "thumbnails": [],
+      "code": "897ddfsdgDdsd4ñ3",
+      "stock": 69,
+      "category": "CATEGORIA",
+      "status": true
+    },
+    {
+      "id": 16,
+      "title": "dddTEST prdoduct",
+      "description": "second product",
+      "price": 1599,
+      "thumbnails": [],
+      "code": "897ddfsddgDdsd4ñ3",
+      "stock": 69,
+      "category": "CATEGORIA",
+      "status": true
+    },
+    {
+      "id": 17,
+      "title": "dddTEST prdoduct",
+      "description": "second product",
+      "price": 1599,
+      "thumbnails": "no image",
+      "code": "897ddfsdsdgDdsd4ñ3",
+      "stock": 69,
+      "category": "CATEGORIA",
+      "status": true
+    },
+    {
+      "id": 18,
+      "title": "dddTEST prdoduct",
+      "description": "second product",
+      "price": 1599,
+      "thumbnails": "no image",
+      "code": "897dfdfsdsdgDdsd4ñ3",
+      "stock": 69,
+      "status": false,
+      "category": "CATEGORIA"
+    },
+    {
+      "id": 19,
+      "title": "dddTEST prdoduct",
+      "description": "second product",
+      "price": 1599,
+      "thumbnails": "no image",
+      "code": "897dfdfsdsdjgDdsd4ñ3",
+      "stock": 69,
+      "category": "CATEGORIA",
+      "status": true
+    },
+    {
+      "id": 21,
+      "title": "ddddaTEST prdoduct",
+      "description": "second product",
+      "price": 1599,
+      "thumbnails": "no image",
+      "code": "8d97dfdjfsdsdjgDdsd4ñ3",
+      "stock": 69,
+      "category": "CATEGORIA"
+    },
+    {
+      "id": 22,
+      "title": "d",
+      "price": "23",
+      "code": "23",
+      "stock": "23",
+      "category": "23",
+      "description": "23",
+      "status": "true",
+      "thumbnails": ""
+    },
+    {
+      "id": 23,
+      "title": "dee",
+      "price": "23",
+      "code": "gg55",
+      "stock": "12",
+      "category": "fdsfdsfdsf",
+      "description": "dfsfds",
+      "status": "true",
+      "thumbnails": ""
+    },
+    {
+      "id": 24,
+      "title": "dee",
+      "price": "23",
+      "code": "gg55d",
+      "stock": "12",
+      "category": "fdsfdsfdsf",
+      "description": "dfsfds",
+      "status": "true",
+      "thumbnails": ""
+    },
+    {
+      "id": 25,
+      "title": "dee",
+      "price": "23",
+      "code": "gg55ds",
+      "stock": "12",
+      "category": "fdsfdsfdsf",
+      "description": "dfsfds",
+      "status": "true",
+      "thumbnails": ""
+    },
+    {
+      "id": 26,
+      "title": "dee",
+      "price": "23",
+      "code": "ggsd5d5ds",
+      "stock": "12",
+      "category": "fdsfdsfdsf",
+      "description": "dfsfds",
+      "status": "true",
+      "thumbnails": ""
+    },
+    {
+      "id": 27,
+      "title": "dee",
+      "price": "23",
+      "code": "343434",
+      "stock": "12",
+      "category": "fdsfdsfdsf",
+      "description": "dfsfds",
+      "status": "true",
+      "thumbnails": ""
+    },
+    {
+      "id": 28,
+      "title": "Prueba",
+      "price": "23",
+      "code": "34s3434",
+      "stock": "12",
+      "category": "fdsfdsfdsf",
+      "description": "dfsfds",
+      "status": "true",
+      "thumbnails": ""
+    },
+    {
+      "id": 29,
+      "title": "desde realtime",
+      "price": "2323",
+      "code": "qwe23",
+      "stock": "12",
+      "category": "realtime",
+      "description": "realtime",
+      "status": "true",
+      "thumbnails": ""
+    }
+  ]
+}
