@@ -15,9 +15,8 @@ const Service = new ProductService();
 
 productsRouter.get('/', async (req, res) => {
   try {
-    console.log("lleg");
-    const products = await Service.getAll();
-    console.log(products);
+    const { limit } = req.query;
+    const products = await Service.getAll(limit);
     return res.status(200).json({
       status: 'success',
       msg: 'products list',
@@ -35,7 +34,6 @@ productsRouter.get('/', async (req, res) => {
 
 productsRouter.get('/:id', async (req, res) => {
   try {
-    console.log("llega");
     const { id } = req.params;
     console.log(id)
     const products = await Service.getProductById(id);
@@ -72,7 +70,7 @@ productsRouter.get('/:id', async (req, res) => {
     return res.status(500).json({
       status: 'error',
       msg: 'something went wrong :(',
-      data: {},
+      data: {e},
     });
   }
 });
@@ -88,6 +86,7 @@ productsRouter.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const productDeleted= await Service.deleteOne(id);
+    console.log(productDeleted)
     return res.status(200).json({
       status: 'success',
       msg: 'product deleted',

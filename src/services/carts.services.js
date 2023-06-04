@@ -18,7 +18,6 @@ export class CartService {
     try {
         // first verify if there is a cart for the user
         const cart= {
-           // clientId: "",
             products: []
         }
         return await CartModel.create(cart)

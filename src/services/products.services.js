@@ -8,8 +8,8 @@ export class ProductService {
       throw new Error('validation error: Some field is missing, please check.');
     }
   
-  async getAll() {
-    const products = await ProductModel.find({}).lean().exec();
+  async getAll(limit) {
+     const products = await ProductModel.find({}).limit(limit).lean().exec();
     return products;
   }
 
@@ -27,13 +27,17 @@ export class ProductService {
   }
 
   async deleteOne(_id) {
+   const ProductToDelete= await ProductModel.findOne({_id: _id });
+   if(!ProductToDelete)
+   {
+    throw new Error('product to delete does not exist.');
+   }
     const deleted = await ProductModel.deleteOne({ _id: _id });
     return deleted;
   }
 
   async updateOne(_id, title, description, price,thumbnail,code,stock,category,status) {
     if (!_id) throw new Error('invalid _id');
-   // this.validateProduct(title, description, price,thumbnail,code,stock,category,status);
     const productUptaded = await ProductModel.updateOne({ _id: _id }, { title, description, price,thumbnail,code,stock,category,status });
     return productUptaded;
   }
