@@ -1,16 +1,33 @@
+//MULTER
+import multer from 'multer';
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, 'public'));
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+export const uploader = multer({ storage });
+
+
+//DIRNAME
+import path from 'path';
 import {fileURLToPath} from 'url';
 import {dirname} from 'path';
 const __filename= fileURLToPath(import.meta.url);
-import { connect } from "mongoose";
-import { Server } from 'socket.io';
+
+export const __dirname=dirname(__filename);
 
 
 
 //CONECTION TO MONGO
+import { connect } from "mongoose";
 export async function connectMongo() {
     try {
       await connect(
-        "mongodb+srv://diegotocchetto:Gd57QCtu8yQIW4Sh@backend.jwxstie.mongodb.net/backend?retryWrites=true&w=majority"
+        "mongodb+srv://diegotocchetto:Gd57QCtu8yQIW4Sh@ecommerce.jwxstie.mongodb.net/backend?retryWrites=true&w=majority"
       );
       console.log("pluged to mongoCloud!");
     } catch (e) {
@@ -19,9 +36,11 @@ export async function connectMongo() {
     }
   }
 
-export const __dirname=dirname(__filename);
+
 
 //SOCKETS
+import { Server } from 'socket.io';
+import { messageModel } from './DAO/models/messages.model.js';
 export function connectSocket(httpServer) {
   const socketServer = new Server(httpServer);
 

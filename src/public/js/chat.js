@@ -1,9 +1,9 @@
 //FRONT
 const socket = io();
-let correoDelUsuario = '';
+let userEmail = '';
 
-async function pedirEmail() {
-  const { value: nombre } = await Swal.fire({
+async function askEmail() {
+  const { value: name } = await Swal.fire({
     title: 'Enter your mail',
     input: 'text',
     inputLabel: 'Your mail',
@@ -16,10 +16,10 @@ async function pedirEmail() {
     },
   });
 
-  correoDelUsuario = nombre;
+  userEmail = name;
 }
 
-pedirEmail();
+askEmail();
 
 //FRONT EMITE
 
@@ -28,7 +28,7 @@ const chatBox = document.getElementById('chat-box');
 chatBox.addEventListener('keyup', ({ key }) => {
   if (key == 'Enter') {
     socket.emit('msg_front_to_back', {
-      user: correoDelUsuario,
+      user: userEmail,
       message: chatBox.value,
     });
     chatBox.value = '';

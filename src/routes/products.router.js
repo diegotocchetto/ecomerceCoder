@@ -37,7 +37,11 @@ productsRouter.get('/:id', async (req, res) => {
     const { id } = req.params;
     console.log(id)
     const products = await Service.getProductById(id);
-    console.log(products);
+    if(!products) 
+    return res.status(404).json({
+      status: 'error',
+      msg: 'The product does not exist'});
+  
     return res.status(200).json({
       status: 'success',
       msg: 'product',

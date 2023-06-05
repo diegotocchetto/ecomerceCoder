@@ -1,16 +1,14 @@
 import express from 'express';
 import productRouter from './routes/products.router.js';
 import routerCar from './routes/carts.router.js';
-//import ProductManager from './DAO/managers/ProductManager.js';
 import viewsRouter from './routes/home.router.js';
-import handlebars from 'express-handlebars';
-//import { Server } from 'socket.io';
-import { __dirname, connectMongo,connectSocket } from './utils.js';
 import realTimeRouter from './routes/realTimeProducts.router.js';
-import ChatRouter from './routes/chat.router.js';
-//const manager = new ProductManager("./products.json");
-//import { messageModel } from './DAO/models/messages.model.js';
+import handlebars from 'express-handlebars';
+import { __dirname, connectMongo,connectSocket} from './utils.js';
 
+import ChatRouter from './routes/chat.router.js';
+
+//EXPRESS
 const app = express();
 const port=8080;
 const httpServer =app.listen(port, () => {
@@ -21,12 +19,10 @@ const httpServer =app.listen(port, () => {
 connectMongo();
 connectSocket(httpServer);
 
-
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
+//RUTAS
 app.use('/static',express.static('./src/public'));
 app.use('/api/carts', routerCar);
 app.use('/api/products', productRouter);
@@ -39,9 +35,6 @@ app.set("view engine", "handlebars");
 app.use(express.static(__dirname+'/public'));
 app.use('/home',viewsRouter);
 app.use('/chat',ChatRouter);
-
-
-
 
 
 app.get("*"), (req, res, next) => {
